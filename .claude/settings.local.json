@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker compose *)",
+      "Bash(curl -s -o /dev/null -w \"frontend HTTP %{http_code}\\\\n\" http://localhost:5180/)",
+      "Bash(curl -s http://localhost:8010/api/health/)",
+      "Bash(start \"\" \"http://localhost:5180\")"
+    ]
+  }
+}
