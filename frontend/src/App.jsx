@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Component } from "react";
 import { NavLink, Route, Routes, useLocation, useNavigate, Link } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.jsx";
 import UploadDataset from "./pages/UploadDataset.jsx";
@@ -13,6 +13,49 @@ import Validation from "./pages/Validation.jsx";
 import GcpArchitecture from "./pages/GcpArchitecture.jsx";
 import SolutionTopology from "./pages/SolutionTopology.jsx";
 import { api } from "./api/client.js";
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(err) {
+    console.error("ErrorBoundary caught:", err);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: 40, textAlign: "center", color: "#fff" }}>
+          <h2>CLARA Interface Notice</h2>
+          <p style={{ color: "var(--dim)", margin: "10px 0 20px" }}>
+            A application update was deployed. Please click below to refresh the route.
+          </p>
+          <button
+            onClick={() => {
+              this.setState({ hasError: false });
+              window.location.reload();
+            }}
+            style={{
+              background: "#4285F4",
+              color: "#fff",
+              padding: "10px 24px",
+              borderRadius: 6,
+              fontWeight: 800,
+              cursor: "pointer",
+              border: "none",
+            }}
+          >
+            🔄 Refresh CLARA Interface
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 const NAV = [
   { to: "/solution-topology", label: "Solution Architecture Topology", ix: "✦", tint: "var(--gold)" },
@@ -189,21 +232,23 @@ export default function App() {
           </div>
         )}
 
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/solution-topology" element={<SolutionTopology />} />
-          <Route path="/upload" element={<UploadDataset />} />
-          <Route path="/synthesis" element={<Synthesis />} />
-          <Route path="/quality-gate" element={<QualityGate />} />
-          <Route path="/rag-pipeline" element={<RagPipeline />} />
-          <Route path="/nudges" element={<NudgeQueue />} />
-          <Route path="/final-output" element={<FinalOutput />} />
-          <Route path="/validation" element={<Validation />} />
-          <Route path="/customers/:customerId" element={<CustomerDetail />} />
-          <Route path="/recommendations/:customerId" element={<CustomerDetail />} />
-          <Route path="/chat" element={<Chatbot />} />
-          <Route path="/gcp-architecture" element={<GcpArchitecture />} />
-        </Routes>
+        <ErrorBoundary>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/solution-topology" element={<SolutionTopology />} />
+            <Route path="/upload" element={<UploadDataset />} />
+            <Route path="/synthesis" element={<Synthesis />} />
+            <Route path="/quality-gate" element={<QualityGate />} />
+            <Route path="/rag-pipeline" element={<RagPipeline />} />
+            <Route path="/nudges" element={<NudgeQueue />} />
+            <Route path="/final-output" element={<FinalOutput />} />
+            <Route path="/validation" element={<Validation />} />
+            <Route path="/customers/:customerId" element={<CustomerDetail />} />
+            <Route path="/recommendations/:customerId" element={<CustomerDetail />} />
+            <Route path="/chat" element={<Chatbot />} />
+            <Route path="/gcp-architecture" element={<GcpArchitecture />} />
+          </Routes>
+        </ErrorBoundary>
       </main>
     </div>
   );
