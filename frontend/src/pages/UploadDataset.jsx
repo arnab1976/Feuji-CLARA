@@ -84,13 +84,19 @@ export default function UploadDataset() {
   const fileInputRef = useRef(null);
 
   const loadSavedDatasets = useCallback(async () => {
-    const data = await api.savedDatasets();
-    const results = (data.results || []).map(mapDataset);
-    setSavedList(results);
-    if (results.length) {
-      setPanelDataset(results[0]);
-      setSelectedId(null);
-      return results;
+    let results = [];
+    try {
+      const data = await api.savedDatasets();
+      results = (Array.isArray(data?.results) ? data.results : Array.isArray(data) ? data : []).map(mapDataset);
+      setSavedList(results);
+      if (results.length) {
+        setPanelDataset(results[0]);
+        setSelectedId(null);
+        return results;
+      }
+    } catch (e) {
+      console.warn("Failed loading saved datasets:", e);
+      setSavedList([]);
     }
     // Fallback: live DB still has rows but no saved snapshots yet
     try {
