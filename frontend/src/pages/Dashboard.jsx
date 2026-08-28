@@ -97,7 +97,7 @@ export default function Dashboard() {
 
             <div>
               <Link
-                to="/upload"
+                to="/solution-topology"
                 style={{
                   background: "linear-gradient(135deg, var(--gold), #b5862e)",
                   color: "#0f1725",

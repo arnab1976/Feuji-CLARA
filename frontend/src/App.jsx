@@ -11,9 +11,11 @@ import RagPipeline from "./pages/RagPipeline.jsx";
 import FinalOutput from "./pages/FinalOutput.jsx";
 import Validation from "./pages/Validation.jsx";
 import GcpArchitecture from "./pages/GcpArchitecture.jsx";
+import SolutionTopology from "./pages/SolutionTopology.jsx";
 import { api } from "./api/client.js";
 
 const NAV = [
+  { to: "/solution-topology", label: "Solution Architecture Topology", ix: "🏛️", tint: "var(--gold)" },
   { to: "/upload", label: "Upload Dataset", ix: "⬆", tint: "var(--cap)" },
   { to: "/synthesis", label: "Gen AI Synthesis", ix: "⟳", tint: "var(--model)" },
   { to: "/quality-gate", label: "Quality Gate", ix: "✓", tint: "#d6a648" },
@@ -189,6 +191,7 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/solution-topology" element={<SolutionTopology />} />
           <Route path="/upload" element={<UploadDataset />} />
           <Route path="/synthesis" element={<Synthesis />} />
           <Route path="/quality-gate" element={<QualityGate />} />
