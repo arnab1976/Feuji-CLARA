@@ -237,7 +237,7 @@ export default function App() {
           </div>
         )}
 
-        <ErrorBoundary>
+        <ErrorBoundary key={loc.pathname}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/solution-topology" element={<SolutionTopology />} />
