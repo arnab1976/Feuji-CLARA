@@ -42,24 +42,6 @@ export default function Dashboard() {
 
         {/* Tech Stack & Powered By Badge at Top Right */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Link
-            to="/gcp-architecture"
-            style={{
-              background: "#4285F4",
-              color: "#fff",
-              padding: "5px 14px",
-              borderRadius: 20,
-              fontSize: 11.5,
-              fontWeight: 800,
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              boxShadow: "0 2px 8px rgba(66, 133, 244, 0.3)",
-            }}
-          >
-            <span>☁ GCP Architecture &amp; Deployment</span>
-          </Link>
-
           <div
             style={{
               display: "inline-flex",
