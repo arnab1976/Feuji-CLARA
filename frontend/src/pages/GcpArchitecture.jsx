@@ -38,10 +38,10 @@ export default function GcpArchitecture() {
                   letterSpacing: "0.06em",
                 }}
               >
-                GCP PRODUCTION DEPLOYMENT
+                END-TO-END SOLUTION ARCHITECTURE
               </span>
               <span style={{ color: "#34A853", fontWeight: 800, fontSize: 11, fontFamily: "JetBrains Mono, monospace" }}>
-                ● 100% ALWAYS FREE TIER APPROVED ($0.00/MO)
+                ● 100% ALWAYS FREE GCP TIER ($0.00/MO)
               </span>
             </div>
             <h1 style={{ fontSize: 20, fontWeight: 900, color: "#fff", letterSpacing: "-0.4px", margin: 0 }}>
@@ -127,107 +127,148 @@ export default function GcpArchitecture() {
         </div>
       </div>
 
-      {/* SECTION 1: ARCHITECTURE TOPOLOGY */}
+      {/* SECTION 1: END-TO-END SOLUTION ARCHITECTURE TOPOLOGY */}
       {(activeSection === "all" || activeSection === "topology") && (
         <div style={{ marginBottom: 20 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
             <div style={{ width: 4, height: 18, background: "#4285F4", borderRadius: 2 }} />
             <h2 style={{ fontSize: 16, fontWeight: 800, color: "#fff", margin: 0 }}>
-              1. Architecture Topology &amp; Interaction Layers
+              1. End-to-End Solution Architecture &amp; Execution Topology
             </h2>
           </div>
 
           <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 10, padding: "14px 18px" }}>
-            {/* 4 Layer Compact Cards */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 10, marginBottom: 14 }}>
+            {/* 5 Architectural Zone Cards */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 10, marginBottom: 14 }}>
               <div style={{ background: "var(--panel2)", border: "1px solid rgba(66, 133, 244, 0.4)", borderRadius: 8, padding: 12 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-                  <span style={{ fontWeight: 800, fontSize: 11, color: "#4285F4" }}>LAYER 1: USER / INGRESS</span>
-                  <span style={{ fontSize: 9.5, background: "rgba(66, 133, 244, 0.2)", color: "#4285F4", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
-                    HTTPS / 443
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+                  <span style={{ fontWeight: 800, fontSize: 10.5, color: "#4285F4" }}>ZONE A: INGESTION &amp; QUALITY</span>
+                  <span style={{ fontSize: 9, background: "rgba(66, 133, 244, 0.2)", color: "#4285F4", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
+                    PIPELINE
                   </span>
                 </div>
-                <h4 style={{ color: "#fff", fontSize: 13.5, fontWeight: 800, marginBottom: 4 }}>
-                  React 18 + Vite SPA (Nginx)
+                <h4 style={{ color: "#fff", fontSize: 13, fontWeight: 800, marginBottom: 4 }}>
+                  CSV Ingest &amp; 5-Rule Gate
                 </h4>
-                <p style={{ fontSize: 11.5, color: "var(--dim)", margin: 0, lineHeight: 1.4 }}>
-                  Hosted on <b>GCP Cloud Run</b> (or Firebase). Renders Nudge Queue dashboard, interactive charts, and RM Chatbot UI.
-                </p>
-              </div>
-
-              <div style={{ background: "var(--panel2)", border: "1px solid rgba(234, 67, 53, 0.4)", borderRadius: 8, padding: 12 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-                  <span style={{ fontWeight: 800, fontSize: 11, color: "#EA4335" }}>LAYER 2: APPLICATION API</span>
-                  <span style={{ fontSize: 9.5, background: "rgba(234, 67, 53, 0.2)", color: "#EA4335", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
-                    Port 8000 / REST
-                  </span>
-                </div>
-                <h4 style={{ color: "#fff", fontSize: 13.5, fontWeight: 800, marginBottom: 4 }}>
-                  Django 5 + Gunicorn + RAG
-                </h4>
-                <p style={{ fontSize: 11.5, color: "var(--dim)", margin: 0, lineHeight: 1.4 }}>
-                  Hosted on <b>GCP Cloud Run</b> (Auto-scaling 0 to N). Handles DRF endpoints, OpenAI LLM calls, and vector retrieval.
+                <p style={{ fontSize: 11, color: "var(--dim)", margin: 0, lineHeight: 1.35 }}>
+                  Parses 10,000 synthetic FD cohort (&gt; ₹10L), synthesizes unstructured notes, and executes 5-rule quality audit.
                 </p>
               </div>
 
               <div style={{ background: "var(--panel2)", border: "1px solid rgba(52, 168, 83, 0.4)", borderRadius: 8, padding: 12 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-                  <span style={{ fontWeight: 800, fontSize: 11, color: "#34A853" }}>LAYER 3: DATABASE ENGINE</span>
-                  <span style={{ fontSize: 9.5, background: "rgba(52, 168, 83, 0.2)", color: "#34A853", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
-                    TCP / 5432
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+                  <span style={{ fontWeight: 800, fontSize: 10.5, color: "#34A853" }}>ZONE B: RAG VECTOR MEMORY</span>
+                  <span style={{ fontSize: 9, background: "rgba(52, 168, 83, 0.2)", color: "#34A853", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
+                    PGVECTOR
                   </span>
                 </div>
-                <h4 style={{ color: "#fff", fontSize: 13.5, fontWeight: 800, marginBottom: 4 }}>
-                  PostgreSQL 16 + pgvector
+                <h4 style={{ color: "#fff", fontSize: 13, fontWeight: 800, marginBottom: 4 }}>
+                  SentenceTransformers (768-dim)
                 </h4>
-                <p style={{ fontSize: 11.5, color: "var(--dim)", margin: 0, lineHeight: 1.4 }}>
-                  Hosted on <b>Compute Engine e2-micro VM</b> (us-central1). Stores 10,000 synthetic customers &amp; 768-dim vector embeddings.
+                <p style={{ fontSize: 11, color: "var(--dim)", margin: 0, lineHeight: 1.35 }}>
+                  Generates vector embeddings using <code>all-mpnet-base-v2</code> and indexes profiles in PostgreSQL HNSW vector DB.
+                </p>
+              </div>
+
+              <div style={{ background: "var(--panel2)", border: "1px solid rgba(234, 67, 53, 0.4)", borderRadius: 8, padding: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+                  <span style={{ fontWeight: 800, fontSize: 10.5, color: "#EA4335" }}>ZONE C: AI NUDGE REASONING</span>
+                  <span style={{ fontSize: 9, background: "rgba(234, 67, 53, 0.2)", color: "#EA4335", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
+                    LLM ENGINE
+                  </span>
+                </div>
+                <h4 style={{ color: "#fff", fontSize: 13, fontWeight: 800, marginBottom: 4 }}>
+                  OpenAI gpt-4o-mini RAG
+                </h4>
+                <p style={{ fontSize: 11, color: "var(--dim)", margin: 0, lineHeight: 1.35 }}>
+                  Calculates propensity scores, ranks Nudge Queue, and synthesizes grounded natural language cross-sell recommendations.
                 </p>
               </div>
 
               <div style={{ background: "var(--panel2)", border: "1px solid rgba(251, 188, 5, 0.4)", borderRadius: 8, padding: 12 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
-                  <span style={{ fontWeight: 800, fontSize: 11, color: "#FBBC05" }}>LAYER 4: CI/CD PIPELINE</span>
-                  <span style={{ fontSize: 9.5, background: "rgba(251, 188, 5, 0.2)", color: "#FBBC05", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
-                    Git Automation
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+                  <span style={{ fontWeight: 800, fontSize: 10.5, color: "#FBBC05" }}>ZONE D: DUAL VALIDATION</span>
+                  <span style={{ fontSize: 9, background: "rgba(251, 188, 5, 0.2)", color: "#FBBC05", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
+                    AUDIT
                   </span>
                 </div>
-                <h4 style={{ color: "#fff", fontSize: 13.5, fontWeight: 800, marginBottom: 4 }}>
-                  GitHub + Cloud Build
+                <h4 style={{ color: "#fff", fontSize: 13, fontWeight: 800, marginBottom: 4 }}>
+                  Global vs. India Audit
                 </h4>
-                <p style={{ fontSize: 11.5, color: "var(--dim)", margin: 0, lineHeight: 1.4 }}>
-                  Repo: <code>Arnab-Feuji/Feuji-CLARA</code>. Cloud Build compiles Docker images into <b>Artifact Registry</b> upon git push.
+                <p style={{ fontSize: 11, color: "var(--dim)", margin: 0, lineHeight: 1.35 }}>
+                  Audits recommendations against Global Wealth standards and India-specific regulatory context (RBI, SEBI, Tax 80C).
+                </p>
+              </div>
+
+              <div style={{ background: "var(--panel2)", border: "1px solid rgba(171, 71, 188, 0.4)", borderRadius: 8, padding: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+                  <span style={{ fontWeight: 800, fontSize: 10.5, color: "#AB47BC" }}>ZONE E: GCP CLOUD INFRA</span>
+                  <span style={{ fontSize: 9, background: "rgba(171, 71, 188, 0.2)", color: "#AB47BC", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
+                    SERVERLESS
+                  </span>
+                </div>
+                <h4 style={{ color: "#fff", fontSize: 13, fontWeight: 800, marginBottom: 4 }}>
+                  Cloud Run &amp; Compute Engine
+                </h4>
+                <p style={{ fontSize: 11, color: "var(--dim)", margin: 0, lineHeight: 1.35 }}>
+                  Hosts DB on <code>e2-micro</code> VM, backend &amp; frontend on Cloud Run with Cloud Build CI/CD at <b>$0.00 monthly cost</b>.
                 </p>
               </div>
             </div>
 
-            {/* Mermaid Code Snippet Box */}
+            {/* Mermaid Solution Architecture Code Box */}
             <div style={{ background: "var(--ink)", border: "1px solid var(--line-soft)", borderRadius: 6, padding: "10px 14px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
                 <span style={{ fontSize: 10, fontFamily: "JetBrains Mono, monospace", color: "var(--mut)", fontWeight: 700 }}>
-                  MERMAID TOPOLOGY FLOW SPECIFICATION
+                  SOLUTION ARCHITECTURE &amp; DEPLOYMENT FLOWCHART
                 </span>
                 <span style={{ fontSize: 10, color: "var(--gold)", fontFamily: "JetBrains Mono, monospace" }}>
-                  100% Free Tier Architecture
+                  End-to-End Enterprise Flow
                 </span>
               </div>
               <pre
                 style={{
                   fontFamily: "JetBrains Mono, monospace",
-                  fontSize: 11,
+                  fontSize: 10.5,
                   color: "#9098b0",
                   whiteSpace: "pre-wrap",
                   lineHeight: 1.4,
                   margin: 0,
                 }}
               >
-{`graph TD
-    Client["User Browser / RM Device"] -->|HTTPS| Frontend["Cloud Run: feuji-clara-frontend (React 18 + Nginx)"]
-    Frontend -->|REST API| Backend["Cloud Run: feuji-clara-backend (Django 5 + Gunicorn)"]
-    Backend -->|Internal VPC / 5432| DB["Compute Engine VM: xsell-db-vm (PostgreSQL 16 + pgvector)"]
-    Backend -->|API Key| OpenAI["OpenAI API (gpt-4o-mini Reasoning Engine)"]
-    GitPush["Developer Git Push"] -->|Webhook| GitHub["GitHub Repo: Arnab-Feuji/Feuji-CLARA"]
-    GitHub -->|Trigger| Build["Cloud Build CI/CD"] -->|Image| Registry["Artifact Registry: xsell-repo"] -->|Deploy| Backend & Frontend`}
+{`flowchart TD
+    subgraph ZoneA["ZONE A: Data Ingestion & Quality Pipeline"]
+        RawCSV["10,000 Customer Dataset (FD > ₹10L)"] -->|Upload API| IngestEngine["Ingestion Engine"]
+        IngestEngine -->|Raw Notes| GenAISynth["Gen AI Interaction Synthesizer"]
+        GenAISynth -->|Structured Records| QualityGate["5-Rule Quality Gate"]
+    end
+
+    subgraph ZoneB["ZONE B: RAG Vector Memory Subsystem"]
+        QualityGate -->|Verified Profiles| ProfileChunker["SentenceTransformers Embedder (all-mpnet-base-v2)"]
+        ProfileChunker -->|768-dim Floats| PGVector["PostgreSQL 16 + pgvector (HNSW Index)"]
+    end
+
+    subgraph ZoneC["ZONE C: AI Reasoning & Nudge Engine"]
+        PGVector -->|Active Cohort| PropensityScorer["Propensity Scorer"] --> NudgeQueue["RM Nudge Work Queue"]
+        NudgeQueue -->|RAG Vector Retrieval| LLMReasoning["OpenAI gpt-4o-mini Reasoning Engine"]
+        LLMReasoning -->|Grounded Rationale| FinalNudge["Targeted Product Recommendations"]
+    end
+
+    subgraph ZoneD["ZONE D: Dual-Perspective Validation"]
+        FinalNudge --> AuditEngine["Dual-Perspective Audit"]
+        AuditEngine --> GlobalAudit["Global Wealth Best Practices"]
+        AuditEngine --> IndiaAudit["India Banking Context (RBI / SEBI / Tax 80C)"]
+    end
+
+    subgraph ZoneE["ZONE E: GCP Production Cloud Infrastructure ($0.00 Always Free)"]
+        DB_VM["xsell-db-vm (Compute Engine e2-micro VM, PostgreSQL + pgvector)"]
+        BackendContainer["feuji-clara-backend (Cloud Run Django API, Port 8000)"]
+        FrontendContainer["feuji-clara-frontend (Cloud Run React SPA, Port 8080/80)"]
+        GitHub["GitHub Repo: Arnab-Feuji/Feuji-CLARA"] --> CloudBuild["Google Cloud Build"] --> ArtifactRegistry["Artifact Registry"] --> BackendContainer & FrontendContainer
+    end
+
+    PGVector -.->|VPC Port 5432| DB_VM
+    FrontendContainer -->|REST API| BackendContainer`}
               </pre>
             </div>
           </div>
