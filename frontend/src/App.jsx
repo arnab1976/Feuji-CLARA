@@ -76,7 +76,12 @@ export default function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.health().then(setHealth).catch(() => setHealth({ status: "down" }));
+    const checkHealth = () => {
+      api.health().then(setHealth).catch(() => setHealth({ status: "down" }));
+    };
+    checkHealth();
+    const interval = setInterval(checkHealth, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   const isHome = loc.pathname === "/";
