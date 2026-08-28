@@ -2,96 +2,102 @@ import { useState } from "react";
 
 export default function GcpArchitecture() {
   const [activeSection, setActiveSection] = useState("all");
+  const [copiedUrl, setCopiedUrl] = useState("");
+
+  const copyToClipboard = (text, label) => {
+    navigator.clipboard.writeText(text);
+    setCopiedUrl(label);
+    setTimeout(() => setCopiedUrl(""), 2000);
+  };
 
   return (
-    <div className="view" style={{ maxWidth: 1320 }}>
-      {/* Hero Header */}
+    <div className="view" style={{ maxWidth: 1380, padding: "16px 24px 40px" }}>
+      {/* Sleek Compact Header */}
       <div
-        className="card hero"
         style={{
-          background: "linear-gradient(135deg, rgba(66, 133, 244, 0.12), rgba(54, 179, 126, 0.08), rgba(244, 180, 26, 0.06))",
-          border: "1px solid rgba(66, 133, 244, 0.3)",
-          borderRadius: 14,
-          padding: "28px 32px",
-          marginBottom: 30,
-          position: "relative",
-          overflow: "hidden",
+          background: "linear-gradient(135deg, rgba(66, 133, 244, 0.15), rgba(23, 34, 54, 0.95), rgba(54, 179, 126, 0.1))",
+          border: "1px solid rgba(66, 133, 244, 0.35)",
+          borderRadius: 10,
+          padding: "14px 20px",
+          marginBottom: 16,
+          boxShadow: "0 4px 20px rgba(0,0,0,0.25)",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 16 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
               <span
                 style={{
                   background: "#4285F4",
                   color: "#fff",
                   fontFamily: "JetBrains Mono, monospace",
-                  fontSize: 11,
+                  fontSize: 10,
                   fontWeight: 800,
-                  padding: "4px 10px",
-                  borderRadius: 6,
-                  letterSpacing: "0.08em",
+                  padding: "2px 8px",
+                  borderRadius: 4,
+                  letterSpacing: "0.06em",
                 }}
               >
                 GCP PRODUCTION DEPLOYMENT
               </span>
-              <span style={{ color: "#34A853", fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", gap: 4 }}>
-                ● 100% ALWAYS FREE TIER APPROVED
+              <span style={{ color: "#34A853", fontWeight: 800, fontSize: 11, fontFamily: "JetBrains Mono, monospace" }}>
+                ● 100% ALWAYS FREE TIER APPROVED ($0.00/MO)
               </span>
             </div>
-            <h1 style={{ fontSize: 26, fontWeight: 900, color: "#fff", letterSpacing: "-0.5px", marginBottom: 6 }}>
+            <h1 style={{ fontSize: 20, fontWeight: 900, color: "#fff", letterSpacing: "-0.4px", margin: 0 }}>
               CLARA Cloud System Architecture &amp; Deployment Manual
             </h1>
-            <p style={{ color: "var(--text)", fontSize: 14, maxWidth: 840, lineHeight: 1.6 }}>
-              Full architectural blueprint, component mapping, connection topologies, environment variable specifications, and
-              reproducible step-by-step instructions for hosting CLARA on Google Cloud Platform at <b>$0.00 monthly cost</b>.
-            </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 8 }}>
+          {/* Inline Action Buttons */}
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <a
               href="https://feuji-clara-backend-351505823409.us-central1.run.app/api/health/"
               target="_blank"
               rel="noreferrer"
               style={{
-                background: "var(--panel2)",
-                border: "1px solid var(--line)",
-                padding: "8px 14px",
-                borderRadius: 8,
-                fontSize: 12,
+                background: "rgba(214, 166, 72, 0.15)",
+                border: "1px solid rgba(214, 166, 72, 0.4)",
+                padding: "5px 12px",
+                borderRadius: 6,
+                fontSize: 11.5,
+                fontWeight: 700,
                 fontFamily: "JetBrains Mono, monospace",
                 color: "var(--gold)",
-                display: "flex",
+                display: "inline-flex",
                 alignItems: "center",
-                gap: 6,
+                gap: 5,
+                textDecoration: "none",
               }}
             >
-              <span>⚙️ Live Cloud Run Backend URL ↗</span>
+              <span>⚙️ Cloud Run Backend ↗</span>
             </a>
             <a
               href="https://github.com/Arnab-Feuji/Feuji-CLARA"
               target="_blank"
               rel="noreferrer"
               style={{
-                background: "rgba(255, 255, 255, 0.05)",
+                background: "rgba(255, 255, 255, 0.08)",
                 border: "1px solid var(--line)",
-                padding: "8px 14px",
-                borderRadius: 8,
-                fontSize: 12,
+                padding: "5px 12px",
+                borderRadius: 6,
+                fontSize: 11.5,
+                fontWeight: 700,
                 fontFamily: "JetBrains Mono, monospace",
-                color: "var(--hi)",
-                display: "flex",
+                color: "#fff",
+                display: "inline-flex",
                 alignItems: "center",
-                gap: 6,
+                gap: 5,
+                textDecoration: "none",
               }}
             >
-              <span>🐙 GitHub Source Repository ↗</span>
+              <span>🐙 GitHub Repo ↗</span>
             </a>
           </div>
         </div>
 
-        {/* Quick Filter Navigation */}
-        <div style={{ display: "flex", gap: 8, marginTop: 24, flexWrap: "wrap" }}>
+        {/* Compact Navigation Bar */}
+        <div style={{ display: "flex", gap: 6, marginTop: 12, borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 10 }}>
           {[
             { id: "all", label: "Overview & All Sections" },
             { id: "topology", label: "1. Architecture Topology" },
@@ -103,15 +109,16 @@ export default function GcpArchitecture() {
               key={tab.id}
               onClick={() => setActiveSection(tab.id)}
               style={{
-                padding: "6px 14px",
-                borderRadius: 20,
-                fontSize: 12.5,
+                padding: "4px 12px",
+                borderRadius: 14,
+                fontSize: 11.5,
                 fontWeight: 700,
-                background: activeSection === tab.id ? "#4285F4" : "rgba(255, 255, 255, 0.06)",
+                background: activeSection === tab.id ? "#4285F4" : "rgba(255, 255, 255, 0.05)",
                 color: activeSection === tab.id ? "#fff" : "var(--dim)",
                 border: "1px solid",
-                borderColor: activeSection === tab.id ? "#4285F4" : "var(--line)",
-                transition: "0.15s",
+                borderColor: activeSection === tab.id ? "#4285F4" : "transparent",
+                cursor: "pointer",
+                transition: "0.12s",
               }}
             >
               {tab.label}
@@ -122,112 +129,105 @@ export default function GcpArchitecture() {
 
       {/* SECTION 1: ARCHITECTURE TOPOLOGY */}
       {(activeSection === "all" || activeSection === "topology") && (
-        <div style={{ marginBottom: 40 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <span style={{ fontSize: 20, color: "#4285F4" }}>🌐</span>
-            <h2 style={{ fontSize: 20, fontWeight: 800, color: "#fff" }}>1. Architecture Topology</h2>
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+            <div style={{ width: 4, height: 18, background: "#4285F4", borderRadius: 2 }} />
+            <h2 style={{ fontSize: 16, fontWeight: 800, color: "#fff", margin: 0 }}>
+              1. Architecture Topology &amp; Interaction Layers
+            </h2>
           </div>
 
-          <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 12, padding: 24, marginBottom: 20 }}>
-            <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--gold)", marginBottom: 14 }}>
-              System Interaction &amp; Data Flow Diagram
-            </h3>
-
-            {/* Visual Box Architecture Representation */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                gap: 16,
-                marginBottom: 24,
-              }}
-            >
-              <div style={{ background: "var(--panel2)", border: "1px solid #4285F4", borderRadius: 10, padding: 18 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-                  <span style={{ fontWeight: 800, fontSize: 13, color: "#4285F4" }}>LAYER 1: USER / INGRESS</span>
-                  <span style={{ fontSize: 10, background: "rgba(66, 133, 244, 0.2)", color: "#4285F4", padding: "2px 6px", borderRadius: 4 }}>
-                    HTTPS / Port 443
+          <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 10, padding: "14px 18px" }}>
+            {/* 4 Layer Compact Cards */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 10, marginBottom: 14 }}>
+              <div style={{ background: "var(--panel2)", border: "1px solid rgba(66, 133, 244, 0.4)", borderRadius: 8, padding: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                  <span style={{ fontWeight: 800, fontSize: 11, color: "#4285F4" }}>LAYER 1: USER / INGRESS</span>
+                  <span style={{ fontSize: 9.5, background: "rgba(66, 133, 244, 0.2)", color: "#4285F4", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
+                    HTTPS / 443
                   </span>
                 </div>
-                <h4 style={{ color: "#fff", fontSize: 15, fontWeight: 700, marginBottom: 6 }}>
+                <h4 style={{ color: "#fff", fontSize: 13.5, fontWeight: 800, marginBottom: 4 }}>
                   React 18 + Vite SPA (Nginx)
                 </h4>
-                <p style={{ fontSize: 12.5, color: "var(--dim)", lineHeight: 1.5 }}>
-                  Hosted on <b>GCP Cloud Run</b> (or <b>Firebase Hosting</b>). Renders Nudge Queue dashboard, interactive charts, and RM Chatbot UI.
+                <p style={{ fontSize: 11.5, color: "var(--dim)", margin: 0, lineHeight: 1.4 }}>
+                  Hosted on <b>GCP Cloud Run</b> (or Firebase). Renders Nudge Queue dashboard, interactive charts, and RM Chatbot UI.
                 </p>
               </div>
 
-              <div style={{ background: "var(--panel2)", border: "1px solid #EA4335", borderRadius: 10, padding: 18 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-                  <span style={{ fontWeight: 800, fontSize: 13, color: "#EA4335" }}>LAYER 2: APPLICATION API</span>
-                  <span style={{ fontSize: 10, background: "rgba(234, 67, 53, 0.2)", color: "#EA4335", padding: "2px 6px", borderRadius: 4 }}>
+              <div style={{ background: "var(--panel2)", border: "1px solid rgba(234, 67, 53, 0.4)", borderRadius: 8, padding: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                  <span style={{ fontWeight: 800, fontSize: 11, color: "#EA4335" }}>LAYER 2: APPLICATION API</span>
+                  <span style={{ fontSize: 9.5, background: "rgba(234, 67, 53, 0.2)", color: "#EA4335", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
                     Port 8000 / REST
                   </span>
                 </div>
-                <h4 style={{ color: "#fff", fontSize: 15, fontWeight: 700, marginBottom: 6 }}>
+                <h4 style={{ color: "#fff", fontSize: 13.5, fontWeight: 800, marginBottom: 4 }}>
                   Django 5 + Gunicorn + RAG
                 </h4>
-                <p style={{ fontSize: 12.5, color: "var(--dim)", lineHeight: 1.5 }}>
+                <p style={{ fontSize: 11.5, color: "var(--dim)", margin: 0, lineHeight: 1.4 }}>
                   Hosted on <b>GCP Cloud Run</b> (Auto-scaling 0 to N). Handles DRF endpoints, OpenAI LLM calls, and vector retrieval.
                 </p>
               </div>
 
-              <div style={{ background: "var(--panel2)", border: "1px solid #34A853", borderRadius: 10, padding: 18 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-                  <span style={{ fontWeight: 800, fontSize: 13, color: "#34A853" }}>LAYER 3: DATABASE ENGINE</span>
-                  <span style={{ fontSize: 10, background: "rgba(52, 168, 83, 0.2)", color: "#34A853", padding: "2px 6px", borderRadius: 4 }}>
-                    Port 5432 / TCP
+              <div style={{ background: "var(--panel2)", border: "1px solid rgba(52, 168, 83, 0.4)", borderRadius: 8, padding: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                  <span style={{ fontWeight: 800, fontSize: 11, color: "#34A853" }}>LAYER 3: DATABASE ENGINE</span>
+                  <span style={{ fontSize: 9.5, background: "rgba(52, 168, 83, 0.2)", color: "#34A853", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
+                    TCP / 5432
                   </span>
                 </div>
-                <h4 style={{ color: "#fff", fontSize: 15, fontWeight: 700, marginBottom: 6 }}>
+                <h4 style={{ color: "#fff", fontSize: 13.5, fontWeight: 800, marginBottom: 4 }}>
                   PostgreSQL 16 + pgvector
                 </h4>
-                <p style={{ fontSize: 12.5, color: "var(--dim)", lineHeight: 1.5 }}>
+                <p style={{ fontSize: 11.5, color: "var(--dim)", margin: 0, lineHeight: 1.4 }}>
                   Hosted on <b>Compute Engine e2-micro VM</b> (us-central1). Stores 10,000 synthetic customers &amp; 768-dim vector embeddings.
                 </p>
               </div>
 
-              <div style={{ background: "var(--panel2)", border: "1px solid #FBBC05", borderRadius: 10, padding: 18 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-                  <span style={{ fontWeight: 800, fontSize: 13, color: "#FBBC05" }}>LAYER 4: CI/CD PIPELINE</span>
-                  <span style={{ fontSize: 10, background: "rgba(251, 188, 5, 0.2)", color: "#FBBC05", padding: "2px 6px", borderRadius: 4 }}>
-                    Git Push Automation
+              <div style={{ background: "var(--panel2)", border: "1px solid rgba(251, 188, 5, 0.4)", borderRadius: 8, padding: 12 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                  <span style={{ fontWeight: 800, fontSize: 11, color: "#FBBC05" }}>LAYER 4: CI/CD PIPELINE</span>
+                  <span style={{ fontSize: 9.5, background: "rgba(251, 188, 5, 0.2)", color: "#FBBC05", padding: "1px 5px", borderRadius: 4, fontFamily: "JetBrains Mono, monospace" }}>
+                    Git Automation
                   </span>
                 </div>
-                <h4 style={{ color: "#fff", fontSize: 15, fontWeight: 700, marginBottom: 6 }}>
+                <h4 style={{ color: "#fff", fontSize: 13.5, fontWeight: 800, marginBottom: 4 }}>
                   GitHub + Cloud Build
                 </h4>
-                <p style={{ fontSize: 12.5, color: "var(--dim)", lineHeight: 1.5 }}>
+                <p style={{ fontSize: 11.5, color: "var(--dim)", margin: 0, lineHeight: 1.4 }}>
                   Repo: <code>Arnab-Feuji/Feuji-CLARA</code>. Cloud Build compiles Docker images into <b>Artifact Registry</b> upon git push.
                 </p>
               </div>
             </div>
 
-            {/* Mermaid Architecture Code Box */}
-            <div style={{ background: "var(--ink)", border: "1px solid var(--line-soft)", borderRadius: 8, padding: 16 }}>
-              <div style={{ fontSize: 11, fontFamily: "JetBrains Mono, monospace", color: "var(--mut)", marginBottom: 8 }}>
-                MERMAID TOPOLOGY ARCHITECTURE DEFINITION
+            {/* Mermaid Code Snippet Box */}
+            <div style={{ background: "var(--ink)", border: "1px solid var(--line-soft)", borderRadius: 6, padding: "10px 14px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                <span style={{ fontSize: 10, fontFamily: "JetBrains Mono, monospace", color: "var(--mut)", fontWeight: 700 }}>
+                  MERMAID TOPOLOGY FLOW SPECIFICATION
+                </span>
+                <span style={{ fontSize: 10, color: "var(--gold)", fontFamily: "JetBrains Mono, monospace" }}>
+                  100% Free Tier Architecture
+                </span>
               </div>
               <pre
                 style={{
                   fontFamily: "JetBrains Mono, monospace",
-                  fontSize: 12,
-                  color: "#a6accd",
+                  fontSize: 11,
+                  color: "#9098b0",
                   whiteSpace: "pre-wrap",
-                  lineHeight: 1.5,
+                  lineHeight: 1.4,
+                  margin: 0,
                 }}
               >
 {`graph TD
-    Client["User Browser / RM Mobile Device"] -->|HTTPS / SSL| Frontend["Cloud Run: feuji-clara-frontend (React 18 + Nginx)"]
-    Frontend -->|REST API Calls| Backend["Cloud Run: feuji-clara-backend (Django 5 + Gunicorn)"]
-    Backend -->|Internal VPC / Port 5432| DB["Compute Engine VM: xsell-db-vm (PostgreSQL 16 + pgvector)"]
-    Backend -->|External API Key| OpenAI["OpenAI API (gpt-4o-mini Reasoning Engine)"]
-    
+    Client["User Browser / RM Device"] -->|HTTPS| Frontend["Cloud Run: feuji-clara-frontend (React 18 + Nginx)"]
+    Frontend -->|REST API| Backend["Cloud Run: feuji-clara-backend (Django 5 + Gunicorn)"]
+    Backend -->|Internal VPC / 5432| DB["Compute Engine VM: xsell-db-vm (PostgreSQL 16 + pgvector)"]
+    Backend -->|API Key| OpenAI["OpenAI API (gpt-4o-mini Reasoning Engine)"]
     GitPush["Developer Git Push"] -->|Webhook| GitHub["GitHub Repo: Arnab-Feuji/Feuji-CLARA"]
-    GitHub -->|Trigger| Build["Cloud Build CI/CD Service"]
-    Build -->|Store Docker Image| Registry["Artifact Registry: xsell-repo"]
-    Registry -->|Automated Deploy| Backend
-    Registry -->|Automated Deploy| Frontend`}
+    GitHub -->|Trigger| Build["Cloud Build CI/CD"] -->|Image| Registry["Artifact Registry: xsell-repo"] -->|Deploy| Backend & Frontend`}
               </pre>
             </div>
           </div>
@@ -236,77 +236,79 @@ export default function GcpArchitecture() {
 
       {/* SECTION 2: GCP TOOLS MATRIX */}
       {(activeSection === "all" || activeSection === "matrix") && (
-        <div style={{ marginBottom: 40 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <span style={{ fontSize: 20, color: "#FBBC05" }}>🛠️</span>
-            <h2 style={{ fontSize: 20, fontWeight: 800, color: "#fff" }}>2. GCP Tools &amp; Hardware Matrix</h2>
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+            <div style={{ width: 4, height: 18, background: "#FBBC05", borderRadius: 2 }} />
+            <h2 style={{ fontSize: 16, fontWeight: 800, color: "#fff", margin: 0 }}>
+              2. GCP Tools &amp; Hardware Specifications Matrix
+            </h2>
           </div>
 
-          <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 12, overflow: "hidden" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", textStyle: "left", fontSize: 13 }}>
+          <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 10, overflow: "hidden" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
               <thead>
                 <tr style={{ background: "var(--panel2)", borderBottom: "1px solid var(--line)" }}>
-                  <th style={{ padding: "14px 18px", color: "var(--gold)", fontWeight: 800 }}>GCP Service</th>
-                  <th style={{ padding: "14px 18px", color: "#fff", fontWeight: 800 }}>Resource Name</th>
-                  <th style={{ padding: "14px 18px", color: "#fff", fontWeight: 800 }}>Hardware Specs</th>
-                  <th style={{ padding: "14px 18px", color: "#fff", fontWeight: 800 }}>Protocol / Port</th>
-                  <th style={{ padding: "14px 18px", color: "#fff", fontWeight: 800 }}>GCP Free Tier Allowance</th>
-                  <th style={{ padding: "14px 18px", color: "#34A853", fontWeight: 800 }}>Monthly Cost</th>
+                  <th style={{ padding: "8px 12px", color: "var(--gold)", fontWeight: 800, textAlign: "left" }}>GCP Service</th>
+                  <th style={{ padding: "8px 12px", color: "#fff", fontWeight: 800, textAlign: "left" }}>Resource Name</th>
+                  <th style={{ padding: "8px 12px", color: "#fff", fontWeight: 800, textAlign: "left" }}>Hardware Specs</th>
+                  <th style={{ padding: "8px 12px", color: "#fff", fontWeight: 800, textAlign: "left" }}>Port / Protocol</th>
+                  <th style={{ padding: "8px 12px", color: "#fff", fontWeight: 800, textAlign: "left" }}>Free Tier Allowance</th>
+                  <th style={{ padding: "8px 12px", color: "#34A853", fontWeight: 800, textAlign: "right" }}>Cost</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style={{ borderBottom: "1px solid var(--line-soft)" }}>
-                  <td style={{ padding: "14px 18px", fontWeight: 700, color: "#4285F4" }}>Google Compute Engine</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>xsell-db-vm</td>
-                  <td style={{ padding: "14px 18px" }}>e2-micro (2 vCPU, 1 GB RAM, 30 GB Disk + 2GB Swap)</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>TCP / 5432</td>
-                  <td style={{ padding: "14px 18px", color: "var(--dim)" }}>1 instance/mo (us-central1, us-east1, us-west1)</td>
-                  <td style={{ padding: "14px 18px", color: "#34A853", fontWeight: 800 }}>$0.00 (100% Free)</td>
+                  <td style={{ padding: "8px 12px", fontWeight: 700, color: "#4285F4" }}>Google Compute Engine</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>xsell-db-vm</td>
+                  <td style={{ padding: "8px 12px" }}>e2-micro (2 vCPU, 1 GB RAM, 30 GB Disk + 2GB Swap)</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>TCP / 5432</td>
+                  <td style={{ padding: "8px 12px", color: "var(--dim)" }}>1 instance/mo (us-central1 free tier)</td>
+                  <td style={{ padding: "8px 12px", color: "#34A853", fontWeight: 800, textAlign: "right" }}>$0.00</td>
                 </tr>
 
                 <tr style={{ borderBottom: "1px solid var(--line-soft)" }}>
-                  <td style={{ padding: "14px 18px", fontWeight: 700, color: "#EA4335" }}>Google Cloud Run (Backend)</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>feuji-clara-backend</td>
-                  <td style={{ padding: "14px 18px" }}>1 vCPU, 1 GiB RAM (Request-based scaling 0 to N)</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>HTTP/REST / 8000</td>
-                  <td style={{ padding: "14px 18px", color: "var(--dim)" }}>2M requests/mo, 180k vCPU-sec, 360k GiB-sec</td>
-                  <td style={{ padding: "14px 18px", color: "#34A853", fontWeight: 800 }}>$0.00 (100% Free)</td>
+                  <td style={{ padding: "8px 12px", fontWeight: 700, color: "#EA4335" }}>Google Cloud Run (Backend)</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>feuji-clara-backend</td>
+                  <td style={{ padding: "8px 12px" }}>1 vCPU, 1 GiB RAM (Auto-scaling 0 to N)</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>HTTP/REST / 8000</td>
+                  <td style={{ padding: "8px 12px", color: "var(--dim)" }}>2M req/mo, 180k vCPU-sec, 360k GiB-sec</td>
+                  <td style={{ padding: "8px 12px", color: "#34A853", fontWeight: 800, textAlign: "right" }}>$0.00</td>
                 </tr>
 
                 <tr style={{ borderBottom: "1px solid var(--line-soft)" }}>
-                  <td style={{ padding: "14px 18px", fontWeight: 700, color: "#4285F4" }}>Google Cloud Run (Frontend)</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>feuji-clara-frontend</td>
-                  <td style={{ padding: "14px 18px" }}>1 vCPU, 512 MiB RAM (Nginx static web server)</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>HTTPS / 8080 (80)</td>
-                  <td style={{ padding: "14px 18px", color: "var(--dim)" }}>Shared Cloud Run free tier pool</td>
-                  <td style={{ padding: "14px 18px", color: "#34A853", fontWeight: 800 }}>$0.00 (100% Free)</td>
+                  <td style={{ padding: "8px 12px", fontWeight: 700, color: "#4285F4" }}>Google Cloud Run (Frontend)</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>feuji-clara-frontend</td>
+                  <td style={{ padding: "8px 12px" }}>1 vCPU, 512 MiB RAM (Nginx SPA web server)</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>HTTPS / 8080 (80)</td>
+                  <td style={{ padding: "8px 12px", color: "var(--dim)" }}>Shared Cloud Run free tier pool</td>
+                  <td style={{ padding: "8px 12px", color: "#34A853", fontWeight: 800, textAlign: "right" }}>$0.00</td>
                 </tr>
 
                 <tr style={{ borderBottom: "1px solid var(--line-soft)" }}>
-                  <td style={{ padding: "14px 18px", fontWeight: 700, color: "#FBBC05" }}>Google Cloud Build</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>GitHub Trigger</td>
-                  <td style={{ padding: "14px 18px" }}>Cloud Build Runner (Docker compilation)</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>Git Webhook</td>
-                  <td style={{ padding: "14px 18px", color: "var(--dim)" }}>120 build-minutes per day free</td>
-                  <td style={{ padding: "14px 18px", color: "#34A853", fontWeight: 800 }}>$0.00 (100% Free)</td>
+                  <td style={{ padding: "8px 12px", fontWeight: 700, color: "#FBBC05" }}>Google Cloud Build</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>GitHub Trigger</td>
+                  <td style={{ padding: "8px 12px" }}>Automated Docker Builder</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>Git Webhook</td>
+                  <td style={{ padding: "8px 12px", color: "var(--dim)" }}>120 build-minutes per day free</td>
+                  <td style={{ padding: "8px 12px", color: "#34A853", fontWeight: 800, textAlign: "right" }}>$0.00</td>
                 </tr>
 
                 <tr style={{ borderBottom: "1px solid var(--line-soft)" }}>
-                  <td style={{ padding: "14px 18px", fontWeight: 700, color: "#AB47BC" }}>Artifact Registry</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>xsell-repo</td>
-                  <td style={{ padding: "14px 18px" }}>Docker Image Repository (us-central1)</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>gcr.io / pkg.dev</td>
-                  <td style={{ padding: "14px 18px", color: "var(--dim)" }}>0.5 GB storage per month free</td>
-                  <td style={{ padding: "14px 18px", color: "#34A853", fontWeight: 800 }}>$0.00 (100% Free)</td>
+                  <td style={{ padding: "8px 12px", fontWeight: 700, color: "#AB47BC" }}>Artifact Registry</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>xsell-repo</td>
+                  <td style={{ padding: "8px 12px" }}>Docker Image Repository (us-central1)</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>gcr.io / pkg.dev</td>
+                  <td style={{ padding: "8px 12px", color: "var(--dim)" }}>0.5 GB storage per month free</td>
+                  <td style={{ padding: "8px 12px", color: "#34A853", fontWeight: 800, textAlign: "right" }}>$0.00</td>
                 </tr>
 
                 <tr>
-                  <td style={{ padding: "14px 18px", fontWeight: 700, color: "#FF6F00" }}>Firebase &amp; GCP IAM</td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>Feuji-CLARA</td>
-                  <td style={{ padding: "14px 18px" }}>Project ID: <code>oval-tributary-463011-f8</code></td>
-                  <td style={{ padding: "14px 18px", fontFamily: "JetBrains Mono, monospace" }}>Project #351505823409</td>
-                  <td style={{ padding: "14px 18px", color: "var(--dim)" }}>10 GB storage, 360 MB/day egress + ₹28,689 Trial</td>
-                  <td style={{ padding: "14px 18px", color: "#34A853", fontWeight: 800 }}>$0.00 (100% Free)</td>
+                  <td style={{ padding: "8px 12px", fontWeight: 700, color: "#FF6F00" }}>Firebase &amp; GCP IAM</td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>Feuji-CLARA</td>
+                  <td style={{ padding: "8px 12px" }}>Project ID: <code>oval-tributary-463011-f8</code></td>
+                  <td style={{ padding: "8px 12px", fontFamily: "JetBrains Mono, monospace" }}>#351505823409</td>
+                  <td style={{ padding: "8px 12px", color: "var(--dim)" }}>10 GB storage, 360 MB/day egress + ₹28.6k Trial</td>
+                  <td style={{ padding: "8px 12px", color: "#34A853", fontWeight: 800, textAlign: "right" }}>$0.00</td>
                 </tr>
               </tbody>
             </table>
@@ -316,78 +318,96 @@ export default function GcpArchitecture() {
 
       {/* SECTION 3: CONNECTION & ENVIRONMENT MAP */}
       {(activeSection === "all" || activeSection === "connections") && (
-        <div style={{ marginBottom: 40 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <span style={{ fontSize: 20, color: "#34A853" }}>🔑</span>
-            <h2 style={{ fontSize: 20, fontWeight: 800, color: "#fff" }}>3. Connection &amp; Environment Map</h2>
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+            <div style={{ width: 4, height: 18, background: "#34A853", borderRadius: 2 }} />
+            <h2 style={{ fontSize: 16, fontWeight: 800, color: "#fff", margin: 0 }}>
+              3. Connection Topologies &amp; Environment Variables
+            </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: 20 }}>
-            {/* Live Endpoints Card */}
-            <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 12, padding: 22 }}>
-              <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 14 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: 12 }}>
+            {/* Endpoints Card */}
+            <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 10, padding: 14 }}>
+              <h3 style={{ fontSize: 13.5, fontWeight: 800, color: "#fff", marginBottom: 10 }}>
                 📡 Live Production Endpoints
               </h3>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12, fontSize: 13 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8, fontSize: 12 }}>
                 <div>
-                  <div style={{ color: "var(--mut)", fontSize: 11, fontWeight: 700, marginBottom: 2 }}>BACKEND REST API</div>
-                  <code style={{ background: "var(--ink)", padding: "6px 10px", borderRadius: 6, color: "var(--gold)", display: "block" }}>
-                    https://feuji-clara-backend-351505823409.us-central1.run.app/api/
-                  </code>
+                  <div style={{ color: "var(--mut)", fontSize: 10, fontWeight: 800, marginBottom: 2 }}>BACKEND REST API</div>
+                  <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                    <code style={{ background: "var(--ink)", padding: "4px 8px", borderRadius: 4, color: "var(--gold)", flex: 1, fontFamily: "JetBrains Mono, monospace", fontSize: 11 }}>
+                      https://feuji-clara-backend-351505823409.us-central1.run.app/api/
+                    </code>
+                    <button
+                      onClick={() => copyToClipboard("https://feuji-clara-backend-351505823409.us-central1.run.app/api/", "backend")}
+                      style={{ background: "var(--panel2)", border: "1px solid var(--line)", padding: "4px 8px", borderRadius: 4, fontSize: 10, color: "#fff", cursor: "pointer" }}
+                    >
+                      {copiedUrl === "backend" ? "✓ Copied" : "Copy"}
+                    </button>
+                  </div>
                 </div>
 
                 <div>
-                  <div style={{ color: "var(--mut)", fontSize: 11, fontWeight: 700, marginBottom: 2 }}>FRONTEND WEB APPLICATION</div>
-                  <code style={{ background: "var(--ink)", padding: "6px 10px", borderRadius: 6, color: "#4285F4", display: "block" }}>
-                    https://feuji-clara-frontend-351505823409.us-central1.run.app
-                  </code>
+                  <div style={{ color: "var(--mut)", fontSize: 10, fontWeight: 800, marginBottom: 2 }}>FRONTEND WEB APPLICATION</div>
+                  <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                    <code style={{ background: "var(--ink)", padding: "4px 8px", borderRadius: 4, color: "#4285F4", flex: 1, fontFamily: "JetBrains Mono, monospace", fontSize: 11 }}>
+                      https://feuji-clara-frontend-351505823409.us-central1.run.app
+                    </code>
+                    <button
+                      onClick={() => copyToClipboard("https://feuji-clara-frontend-351505823409.us-central1.run.app", "frontend")}
+                      style={{ background: "var(--panel2)", border: "1px solid var(--line)", padding: "4px 8px", borderRadius: 4, fontSize: 10, color: "#fff", cursor: "pointer" }}
+                    >
+                      {copiedUrl === "frontend" ? "✓ Copied" : "Copy"}
+                    </button>
+                  </div>
                 </div>
 
                 <div>
-                  <div style={{ color: "var(--mut)", fontSize: 11, fontWeight: 700, marginBottom: 2 }}>POSTGRESQL DATABASE INTERNAL IP</div>
-                  <code style={{ background: "var(--ink)", padding: "6px 10px", borderRadius: 6, color: "#34A853", display: "block" }}>
-                    10.128.0.x:5432 (Internal VPC Network)
+                  <div style={{ color: "var(--mut)", fontSize: 10, fontWeight: 800, marginBottom: 2 }}>POSTGRESQL DATABASE INTERNAL VPC IP</div>
+                  <code style={{ background: "var(--ink)", padding: "4px 8px", borderRadius: 4, color: "#34A853", display: "block", fontFamily: "JetBrains Mono, monospace", fontSize: 11 }}>
+                    10.128.0.x:5432 (Internal Compute Engine VPC Network)
                   </code>
                 </div>
               </div>
             </div>
 
-            {/* Environment Variables Table */}
-            <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 12, padding: 22 }}>
-              <h3 style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 14 }}>
+            {/* Environment Variables Card */}
+            <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 10, padding: 14 }}>
+              <h3 style={{ fontSize: 13.5, fontWeight: 800, color: "#fff", marginBottom: 10 }}>
                 ⚙️ Backend Environment Variables (Cloud Run)
               </h3>
-              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12 }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11.5 }}>
                 <thead>
                   <tr style={{ borderBottom: "1px solid var(--line)" }}>
-                    <th style={{ padding: "6px 8px", color: "var(--gold)", textAlign: "left" }}>Variable Name</th>
-                    <th style={{ padding: "6px 8px", color: "#fff", textAlign: "left" }}>Value / Purpose</th>
+                    <th style={{ padding: "4px 6px", color: "var(--gold)", textAlign: "left" }}>Variable Name</th>
+                    <th style={{ padding: "4px 6px", color: "#fff", textAlign: "left" }}>Configured Value / Function</th>
                   </tr>
                 </thead>
                 <tbody style={{ fontFamily: "JetBrains Mono, monospace" }}>
                   <tr style={{ borderBottom: "1px solid var(--line-soft)" }}>
-                    <td style={{ padding: "6px 8px", color: "var(--dim)" }}>POSTGRES_HOST</td>
-                    <td style={{ padding: "6px 8px", color: "#34A853" }}>Internal VM IP (e.g. 10.128.0.2)</td>
+                    <td style={{ padding: "4px 6px", color: "var(--dim)" }}>POSTGRES_HOST</td>
+                    <td style={{ padding: "4px 6px", color: "#34A853" }}>Internal VM IP (e.g. 10.128.0.2)</td>
                   </tr>
                   <tr style={{ borderBottom: "1px solid var(--line-soft)" }}>
-                    <td style={{ padding: "6px 8px", color: "var(--dim)" }}>POSTGRES_DB</td>
-                    <td style={{ padding: "6px 8px", color: "#fff" }}>crosssell</td>
+                    <td style={{ padding: "4px 6px", color: "var(--dim)" }}>POSTGRES_DB</td>
+                    <td style={{ padding: "4px 6px", color: "#fff" }}>crosssell</td>
                   </tr>
                   <tr style={{ borderBottom: "1px solid var(--line-soft)" }}>
-                    <td style={{ padding: "6px 8px", color: "var(--dim)" }}>POSTGRES_USER</td>
-                    <td style={{ padding: "6px 8px", color: "#fff" }}>crosssell</td>
+                    <td style={{ padding: "4px 6px", color: "var(--dim)" }}>POSTGRES_USER</td>
+                    <td style={{ padding: "4px 6px", color: "#fff" }}>crosssell</td>
                   </tr>
                   <tr style={{ borderBottom: "1px solid var(--line-soft)" }}>
-                    <td style={{ padding: "6px 8px", color: "var(--dim)" }}>LLM_PROVIDER</td>
-                    <td style={{ padding: "6px 8px", color: "#FBBC05" }}>openai</td>
+                    <td style={{ padding: "4px 6px", color: "var(--dim)" }}>LLM_PROVIDER</td>
+                    <td style={{ padding: "4px 6px", color: "#FBBC05" }}>openai</td>
                   </tr>
                   <tr style={{ borderBottom: "1px solid var(--line-soft)" }}>
-                    <td style={{ padding: "6px 8px", color: "var(--dim)" }}>OPENAI_MODEL</td>
-                    <td style={{ padding: "6px 8px", color: "#FBBC05" }}>gpt-4o-mini</td>
+                    <td style={{ padding: "4px 6px", color: "var(--dim)" }}>OPENAI_MODEL</td>
+                    <td style={{ padding: "4px 6px", color: "#FBBC05" }}>gpt-4o-mini</td>
                   </tr>
                   <tr>
-                    <td style={{ padding: "6px 8px", color: "var(--dim)" }}>OPENAI_API_KEY</td>
-                    <td style={{ padding: "6px 8px", color: "#EA4335" }}>sk-proj-... (Encrypted API Key)</td>
+                    <td style={{ padding: "4px 6px", color: "var(--dim)" }}>OPENAI_API_KEY</td>
+                    <td style={{ padding: "4px 6px", color: "#EA4335" }}>sk-proj-... (Encrypted API Key)</td>
                   </tr>
                 </tbody>
               </table>
@@ -399,74 +419,68 @@ export default function GcpArchitecture() {
       {/* SECTION 4: STEP-BY-STEP DEPLOYMENT GUIDE */}
       {(activeSection === "all" || activeSection === "guide") && (
         <div>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <span style={{ fontSize: 20, color: "#EA4335" }}>🚀</span>
-            <h2 style={{ fontSize: 20, fontWeight: 800, color: "#fff" }}>4. Step-by-Step Deployment Guide</h2>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+            <div style={{ width: 4, height: 18, background: "#EA4335", borderRadius: 2 }} />
+            <h2 style={{ fontSize: 16, fontWeight: 800, color: "#fff", margin: 0 }}>
+              4. Step-by-Step Production Deployment Guide
+            </h2>
           </div>
 
-          <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 12, padding: 26 }}>
+          <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 10, padding: "16px 20px" }}>
             {[
               {
-                phase: "PHASE 1: GCP PROJECT SETUP & SOURCE CODE COMMIT",
+                phase: "PHASE 1: GCP PROJECT SETUP & SOURCE COMMIT",
                 color: "#4285F4",
                 steps: [
-                  "Create or select GCP Project ID: oval-tributary-463011-f8 (Project #351505823409).",
-                  "Initialize Git in workspace and push full codebase to GitHub repository: https://github.com/Arnab-Feuji/Feuji-CLARA (branch main).",
-                  "Ensure frontend/.env.production contains VITE_API_BASE=https://feuji-clara-backend-351505823409.us-central1.run.app/api.",
+                  "Create GCP Project ID: oval-tributary-463011-f8 (Project #351505823409).",
+                  "Push workspace codebase to GitHub: https://github.com/Arnab-Feuji/Feuji-CLARA (branch main).",
+                  "Verify frontend/.env.production points to VITE_API_BASE=https://feuji-clara-backend-351505823409.us-central1.run.app/api.",
                 ],
               },
               {
                 phase: "PHASE 2: DATABASE VM DEPLOYMENT (Compute Engine e2-micro)",
                 color: "#34A853",
                 steps: [
-                  "Navigate to Compute Engine > VM Instances > Create Instance.",
-                  "Name: xsell-db-vm | Region: us-central1 (Iowa) | Machine Type: e2-micro (2 vCPU, 1 GB RAM).",
-                  "Boot Disk: 30 GB Standard Persistent Disk (pd-standard) with Ubuntu 22.04 LTS.",
-                  "Automation Startup Script: Installs Docker, sets up 2GB swap space, and launches pgvector/pgvector:pg16 container on port 5432.",
+                  "Compute Engine > VM Instances > Create Instance: Name xsell-db-vm | Region us-central1.",
+                  "Machine Type: e2-micro (2 vCPU, 1 GB RAM, 30 GB Standard Persistent Disk + 2GB Swap).",
+                  "Startup script installs Docker and launches pgvector/pgvector:pg16 container on port 5432.",
                 ],
               },
               {
-                phase: "PHASE 3: BACKEND API SERVICE DEPLOYMENT (Cloud Run)",
+                phase: "PHASE 3: BACKEND SERVICE DEPLOYMENT (Cloud Run)",
                 color: "#EA4335",
                 steps: [
-                  "Navigate to Cloud Run > Create Service > Name: feuji-clara-backend | Region: us-central1.",
-                  "Deployment type: Continuously deploy from repository > Connect GitHub Arnab-Feuji/Feuji-CLARA.",
-                  "Build configuration: Select Dockerfile > Source location: backend/Dockerfile.",
-                  "Authentication: Select 'Allow public access' | Container port: 8000 | Memory: 1 GiB.",
-                  "Variables: Add POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD, LLM_PROVIDER, OPENAI_MODEL, OPENAI_API_KEY.",
-                  "Click Create. Cloud Run compiles backend container image via Cloud Build and issues live URL.",
+                  "Cloud Run > Create Service: Name feuji-clara-backend | Region us-central1 | Container Port: 8000 | Memory: 1 GiB.",
+                  "Source: GitHub repository Arnab-Feuji/Feuji-CLARA > Build via backend/Dockerfile.",
+                  "Set Environment Variables: POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD, LLM_PROVIDER, OPENAI_MODEL, OPENAI_API_KEY.",
                 ],
               },
               {
-                phase: "PHASE 4: FRONTEND WEB APP DEPLOYMENT (Cloud Run)",
+                phase: "PHASE 4: FRONTEND APPLICATION DEPLOYMENT (Cloud Run)",
                 color: "#FBBC05",
                 steps: [
-                  "Navigate to Cloud Run > Create Service > Name: feuji-clara-frontend | Region: us-central1.",
-                  "Deployment type: Continuously deploy from repository > Select Arnab-Feuji/Feuji-CLARA.",
-                  "Build configuration: Select Dockerfile > Source location: frontend/Dockerfile.",
-                  "Authentication: Select 'Allow public access' | Container port: 8080.",
-                  "Note: frontend/nginx.conf uses official listen ${PORT}; template so Nginx binds to Cloud Run port 8080 automatically.",
-                  "Click Create. Cloud Run compiles Nginx static web container and launches live application URL.",
+                  "Cloud Run > Create Service: Name feuji-clara-frontend | Region us-central1 | Container Port: 8080.",
+                  "Source: GitHub repository Arnab-Feuji/Feuji-CLARA > Build via frontend/Dockerfile.",
+                  "Nginx configuration dynamically binds to Cloud Run port 8080 via official default.conf.template.",
                 ],
               },
               {
-                phase: "PHASE 5: DATABASE AUTO-MIGRATION & DATASET INITIALIZATION",
+                phase: "PHASE 5: AUTOMATED DB MIGRATION & DATASET INITIALIZATION",
                 color: "#AB47BC",
                 steps: [
                   "Backend container features automatic database initializer in backend/api/apps.py.",
-                  "Upon container startup, Django automatically detects missing database tables and runs python manage.py migrate.",
-                  "If database records are empty, it automatically populates the 10,000 synthetic customer records from data/customers.csv.",
-                  "Health endpoint https://feuji-clara-backend-351505823409.us-central1.run.app/api/health/ returns status: ok with 10,000 customers loaded.",
+                  "On container boot, Django executes python manage.py migrate and loads 10,000 customer records from customers.csv.",
+                  "Health endpoint https://feuji-clara-backend-351505823409.us-central1.run.app/api/health/ returns status: ok.",
                 ],
               },
             ].map((p, idx) => (
-              <div key={idx} style={{ marginBottom: idx < 4 ? 24 : 0, borderBottom: idx < 4 ? "1px solid var(--line-soft)" : "none", paddingBottom: idx < 4 ? 20 : 0 }}>
-                <div style={{ fontSize: 12, fontWeight: 800, color: p.color, letterSpacing: "0.08em", marginBottom: 8 }}>
+              <div key={idx} style={{ marginBottom: idx < 4 ? 14 : 0, borderBottom: idx < 4 ? "1px solid var(--line-soft)" : "none", paddingBottom: idx < 4 ? 12 : 0 }}>
+                <div style={{ fontSize: 11, fontWeight: 800, color: p.color, letterSpacing: "0.06em", marginBottom: 4, fontFamily: "JetBrains Mono, monospace" }}>
                   {p.phase}
                 </div>
-                <ul style={{ paddingLeft: 20, color: "var(--text)", fontSize: 13.5, lineHeight: 1.6 }}>
+                <ul style={{ paddingLeft: 18, color: "var(--text)", fontSize: 12, lineHeight: 1.5, margin: 0 }}>
                   {p.steps.map((st, sIdx) => (
-                    <li key={sIdx} style={{ marginBottom: 4 }}>
+                    <li key={sIdx} style={{ marginBottom: 2 }}>
                       {st}
                     </li>
                   ))}
