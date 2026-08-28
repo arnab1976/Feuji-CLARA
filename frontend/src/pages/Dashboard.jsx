@@ -120,16 +120,17 @@ export default function Dashboard() {
                   background: "linear-gradient(135deg, var(--gold), #b5862e)",
                   color: "#0f1725",
                   fontWeight: 900,
-                  fontSize: 13,
-                  padding: "9px 20px",
+                  fontSize: 13.5,
+                  padding: "10px 22px",
                   borderRadius: 6,
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: 6,
-                  boxShadow: "0 3px 10px rgba(214, 166, 72, 0.35)",
+                  gap: 8,
+                  boxShadow: "0 4px 14px rgba(214, 166, 72, 0.4)",
+                  textDecoration: "none",
                 }}
               >
-                Upload Dataset &amp; Begin Workflow →
+                🚀 Start CLARA Experience →
               </Link>
             </div>
           </div>
@@ -160,79 +161,79 @@ export default function Dashboard() {
           </p>
         </div>
 
-        {/* 9 Workflow Phase Cards */}
+        {/* 9 Static Information Phase Cards (No Hyperlinks) */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(9, 1fr)", gap: 6 }}>
-          <Link to="/upload" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
+          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--cap)", marginBottom: 2 }}>INGESTION</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Upload CSV</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Ingests raw customer demographics.
             </p>
-          </Link>
+          </div>
 
-          <Link to="/synthesis" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
+          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--model)", marginBottom: 2 }}>SYNTHESIS</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Gen AI Synthesis</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Synthesizes customer interaction feedback.
             </p>
-          </Link>
+          </div>
 
-          <Link to="/quality-gate" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
+          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "#d6a648", marginBottom: 2 }}>QUALITY</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Quality Gate</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Enforces 5 quality checks &amp; de-duplication.
             </p>
-          </Link>
+          </div>
 
-          <Link to="/rag-pipeline" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
+          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--ok)", marginBottom: 2 }}>RAG VECTOR</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>RAG Pipeline</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Chunks profiles into vector embeddings.
             </p>
-          </Link>
+          </div>
 
-          <Link to="/nudges" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
+          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--cap)", marginBottom: 2 }}>WORK QUEUE</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Nudge Queue</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Ranks target customers by propensity scores.
             </p>
-          </Link>
+          </div>
 
-          <Link to="/final-output" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--gold)", borderRadius: 8, textDecoration: "none" }}>
+          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--gold)", borderRadius: 8 }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--gold)", marginBottom: 2 }}>FINAL OUTPUT</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Recommendations</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Product recommendations with reasoning list.
             </p>
-          </Link>
+          </div>
 
-          <Link to="/validation" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid #56a0d3", borderRadius: 8, textDecoration: "none" }}>
+          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid #56a0d3", borderRadius: 8 }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "#56a0d3", marginBottom: 2 }}>VALIDATION</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Global vs. India</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Dual perspective recommendation audit.
             </p>
-          </Link>
+          </div>
 
-          <Link to="/chat" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
+          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--feedback)", marginBottom: 2 }}>RM COPILOT</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>CLARA Chatbot</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Delivers grounded Q&amp;A &amp; visual charts.
             </p>
-          </Link>
+          </div>
 
-          <Link to="/gcp-architecture" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid #4285F4", borderRadius: 8, textDecoration: "none" }}>
+          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid #4285F4", borderRadius: 8 }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "#4285F4", marginBottom: 2 }}>CLOUD ARCH</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>GCP Deployment</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Topology, tools matrix &amp; step-by-step guide.
             </p>
-          </Link>
+          </div>
         </div>
       </div>
     </div>

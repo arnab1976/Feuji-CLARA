@@ -14,7 +14,6 @@ import GcpArchitecture from "./pages/GcpArchitecture.jsx";
 import { api } from "./api/client.js";
 
 const NAV = [
-  { to: "/", label: "Home / Overview", ix: "⌂", tint: "var(--gold)", end: true },
   { to: "/upload", label: "Upload Dataset", ix: "⬆", tint: "var(--cap)" },
   { to: "/synthesis", label: "Gen AI Synthesis", ix: "⟳", tint: "var(--model)" },
   { to: "/quality-gate", label: "Quality Gate", ix: "✓", tint: "#d6a648" },
