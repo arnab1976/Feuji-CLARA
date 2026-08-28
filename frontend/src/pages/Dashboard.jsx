@@ -41,24 +41,44 @@ export default function Dashboard() {
         </div>
 
         {/* Tech Stack & Powered By Badge at Top Right */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            background: "rgba(255, 255, 255, 0.05)",
-            border: "1px solid rgba(255, 255, 255, 0.12)",
-            borderRadius: 20,
-            padding: "4px 14px",
-            fontSize: 11,
-            color: "var(--dim)",
-          }}
-        >
-          <span style={{ color: "var(--gold)", fontWeight: 800 }}>⚡ Powered by</span>
-          <span style={{ color: "#fff", fontWeight: 700 }}>GenAI RAG</span> •
-          <span style={{ color: "#fff", fontWeight: 700 }}>Vector DB</span> •
-          <span style={{ color: "#fff", fontWeight: 700 }}>Django Backend</span> •
-          <span style={{ color: "#fff", fontWeight: 700 }}>React UI</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <Link
+            to="/gcp-architecture"
+            style={{
+              background: "#4285F4",
+              color: "#fff",
+              padding: "5px 14px",
+              borderRadius: 20,
+              fontSize: 11.5,
+              fontWeight: 800,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              boxShadow: "0 2px 8px rgba(66, 133, 244, 0.3)",
+            }}
+          >
+            <span>☁ GCP Architecture &amp; Deployment</span>
+          </Link>
+
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "rgba(255, 255, 255, 0.05)",
+              border: "1px solid rgba(255, 255, 255, 0.12)",
+              borderRadius: 20,
+              padding: "4px 14px",
+              fontSize: 11,
+              color: "var(--dim)",
+            }}
+          >
+            <span style={{ color: "var(--gold)", fontWeight: 800 }}>⚡ Powered by</span>
+            <span style={{ color: "#fff", fontWeight: 700 }}>GenAI RAG</span> •
+            <span style={{ color: "#fff", fontWeight: 700 }}>Vector DB</span> •
+            <span style={{ color: "#fff", fontWeight: 700 }}>Django Backend</span> •
+            <span style={{ color: "#fff", fontWeight: 700 }}>GCP Cloud Run</span>
+          </div>
         </div>
       </div>
 
@@ -140,71 +160,79 @@ export default function Dashboard() {
           </p>
         </div>
 
-        {/* 8 Workflow Phase Cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(8, 1fr)", gap: 6 }}>
-          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
+        {/* 9 Workflow Phase Cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(9, 1fr)", gap: 6 }}>
+          <Link to="/upload" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--cap)", marginBottom: 2 }}>INGESTION</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Upload CSV</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Ingests raw customer demographics.
             </p>
-          </div>
+          </Link>
 
-          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
+          <Link to="/synthesis" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--model)", marginBottom: 2 }}>SYNTHESIS</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Gen AI Synthesis</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Synthesizes customer interaction feedback.
             </p>
-          </div>
+          </Link>
 
-          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
+          <Link to="/quality-gate" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "#d6a648", marginBottom: 2 }}>QUALITY</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Quality Gate</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Enforces 5 quality checks &amp; de-duplication.
             </p>
-          </div>
+          </Link>
 
-          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
+          <Link to="/rag-pipeline" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--ok)", marginBottom: 2 }}>RAG VECTOR</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>RAG Pipeline</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Chunks profiles into vector embeddings.
             </p>
-          </div>
+          </Link>
 
-          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
+          <Link to="/nudges" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--cap)", marginBottom: 2 }}>WORK QUEUE</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Nudge Queue</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Ranks target customers by propensity scores.
             </p>
-          </div>
+          </Link>
 
-          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--gold)", borderRadius: 8 }}>
+          <Link to="/final-output" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--gold)", borderRadius: 8, textDecoration: "none" }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--gold)", marginBottom: 2 }}>FINAL OUTPUT</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Recommendations</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Product recommendations with reasoning list.
             </p>
-          </div>
+          </Link>
 
-          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid #56a0d3", borderRadius: 8 }}>
+          <Link to="/validation" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid #56a0d3", borderRadius: 8, textDecoration: "none" }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "#56a0d3", marginBottom: 2 }}>VALIDATION</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>Global vs. India</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Dual perspective recommendation audit.
             </p>
-          </div>
+          </Link>
 
-          <div className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8 }}>
+          <Link to="/chat" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid var(--line)", borderRadius: 8, textDecoration: "none" }}>
             <div style={{ fontSize: 8.5, fontWeight: 800, color: "var(--feedback)", marginBottom: 2 }}>RM COPILOT</div>
             <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>CLARA Chatbot</h4>
             <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
               Delivers grounded Q&amp;A &amp; visual charts.
             </p>
-          </div>
+          </Link>
+
+          <Link to="/gcp-architecture" className="card" style={{ padding: "8px 8px", background: "var(--panel2)", border: "1px solid #4285F4", borderRadius: 8, textDecoration: "none" }}>
+            <div style={{ fontSize: 8.5, fontWeight: 800, color: "#4285F4", marginBottom: 2 }}>CLOUD ARCH</div>
+            <h4 style={{ fontSize: 11.5, fontWeight: 800, color: "#fff", marginBottom: 2 }}>GCP Deployment</h4>
+            <p style={{ fontSize: 9.5, color: "var(--dim)", margin: 0, lineHeight: 1.25 }}>
+              Topology, tools matrix &amp; step-by-step guide.
+            </p>
+          </Link>
         </div>
       </div>
     </div>
