@@ -15,7 +15,7 @@ import SolutionTopology from "./pages/SolutionTopology.jsx";
 import { api } from "./api/client.js";
 
 const NAV = [
-  { to: "/solution-topology", label: "Solution Architecture Topology", ix: "🏛️", tint: "var(--gold)" },
+  { to: "/solution-topology", label: "Solution Architecture Topology", ix: "✦", tint: "var(--gold)" },
   { to: "/upload", label: "Upload Dataset", ix: "⬆", tint: "var(--cap)" },
   { to: "/synthesis", label: "Gen AI Synthesis", ix: "⟳", tint: "var(--model)" },
   { to: "/quality-gate", label: "Quality Gate", ix: "✓", tint: "#d6a648" },

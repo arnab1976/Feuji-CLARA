@@ -149,7 +149,7 @@ export default function SolutionTopology() {
       <div style={{ background: "var(--panel)", border: "1px solid var(--line)", borderRadius: 10, padding: "14px 18px", marginBottom: 16 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
           <span style={{ fontSize: 11, fontFamily: "JetBrains Mono, monospace", color: "var(--gold)", fontWeight: 800 }}>
-            🏛️ END-TO-END SOLUTION ARCHITECTURE &amp; DEPLOYMENT FLOWCHART
+            ✦ END-TO-END SOLUTION ARCHITECTURE &amp; DEPLOYMENT FLOWCHART
           </span>
           <span style={{ fontSize: 10, color: "var(--ok)", fontFamily: "JetBrains Mono, monospace" }}>
             ● Verified Enterprise Architecture
