@@ -46,8 +46,11 @@ TEMPLATES = [{
     ]},
 }]
 
-# --- Database Config (PostgreSQL + pgvector with SQLite fallback) ----------
-USE_SQLITE = os.getenv("USE_SQLITE", "1") == "1"
+_use_sqlite_env = os.getenv("USE_SQLITE")
+if _use_sqlite_env is not None:
+    USE_SQLITE = _use_sqlite_env == "1"
+else:
+    USE_SQLITE = not bool(os.getenv("POSTGRES_HOST"))
 
 if USE_SQLITE:
     import types
