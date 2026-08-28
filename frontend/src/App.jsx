@@ -10,6 +10,7 @@ import QualityGate from "./pages/QualityGate.jsx";
 import RagPipeline from "./pages/RagPipeline.jsx";
 import FinalOutput from "./pages/FinalOutput.jsx";
 import Validation from "./pages/Validation.jsx";
+import GcpArchitecture from "./pages/GcpArchitecture.jsx";
 import { api } from "./api/client.js";
 
 const NAV = [
@@ -22,6 +23,7 @@ const NAV = [
   { to: "/final-output", label: "Final Output", ix: "🎯", tint: "var(--gold)" },
   { to: "/validation", label: "Validation", ix: "⚖️", tint: "#56a0d3" },
   { to: "/chat", label: "CLARA RM Assistant", ix: "✦", tint: "var(--feedback)" },
+  { to: "/gcp-architecture", label: "GCP Architecture & Deployment", ix: "☁", tint: "#4285F4" },
 ];
 
 export default function App() {
@@ -198,6 +200,7 @@ export default function App() {
           <Route path="/customers/:customerId" element={<CustomerDetail />} />
           <Route path="/recommendations/:customerId" element={<CustomerDetail />} />
           <Route path="/chat" element={<Chatbot />} />
+          <Route path="/gcp-architecture" element={<GcpArchitecture />} />
         </Routes>
       </main>
     </div>
