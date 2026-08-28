@@ -1,4 +1,4 @@
-import { useNavigate } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SolutionTopology() {
   const navigate = useNavigate();
