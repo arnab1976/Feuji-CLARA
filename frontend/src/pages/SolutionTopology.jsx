@@ -197,7 +197,9 @@ export default function SolutionTopology() {
         DB_VM["xsell-db-vm (Compute Engine e2-micro VM, PostgreSQL + pgvector)"]
         BackendContainer["feuji-clara-backend (Cloud Run Django API, Port 8000)"]
         FrontendContainer["feuji-clara-frontend (Cloud Run React SPA, Port 8080/80)"]
-        GitHub["GitHub Repo: Arnab-Feuji/Feuji-CLARA"] --> CloudBuild["Google Cloud Build"] --> ArtifactRegistry["Artifact Registry"] --> BackendContainer & FrontendContainer
+        GitHub["GitHub Repo: Arnab-Feuji/Feuji-CLARA"] --> CloudBuild["Google Cloud Build"] --> ArtifactRegistry["Artifact Registry"]
+        ArtifactRegistry --> BackendContainer
+        ArtifactRegistry --> FrontendContainer
     end
 
     PGVector -.->|VPC Port 5432| DB_VM
